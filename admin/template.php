@@ -1,11 +1,19 @@
 <?php
 
 include("Class/function.php");
+
+$obj = new blogAdmin();
+
 session_start();
 
 $id = $_SESSION['admin_id'];
 if ($id == null) {
     header("location: index.php");
+}
+if(isset($_GET['adminlogout'])){
+    if($_GET['adminlogout']=='logout'){
+        $obj->Admin_Logout();
+    }
 }
 ?>
 

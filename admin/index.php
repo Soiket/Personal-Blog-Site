@@ -9,8 +9,11 @@ if (isset($_POST['admin_login'])) {
 }
 
 session_start();
-$id = $_SESSION['admin_id'];
-if ($id) {
+
+if (isset($_SESSION['admin_id'])) {
+    $id = $_SESSION['admin_id'];
+}
+if (isset($id)) {
     header("location: dashboard.php");
 }
 

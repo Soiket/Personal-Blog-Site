@@ -44,6 +44,14 @@ class blogAdmin{
       }
 
 
+       public function Admin_Logout()
+      {
+          unset($_SESSION['admin_id']);
+          unset($_SESSION['admin_name']);
+          header('location: index.php');
+      }
+
+
 }
 
 

@@ -1,3 +1,5 @@
+
+
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
@@ -34,8 +36,10 @@
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            Admin
+            <div class="small">Logged in as:  <?php echo $_SESSION['admin_name']; ?></div>
+
+           
+            
         </div>
     </nav>
 </div>
