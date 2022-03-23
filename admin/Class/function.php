@@ -52,8 +52,20 @@ class blogAdmin{
       }
 
 
+      public function addCategory($data)
+      {
+          $cat_name = $data['cat_name'];
+          $cat_description = $data['cat_des'];
+
+      
+        $query = "INSERT INTO category(name, description) VALUE('$cat_name', '$cat_description')";
+
+        if(mysqli_query($this->conn, $query))
+        {
+            return "Category Added Successfully";
+        }
+      }
+
+
+
 }
-
-
-
-?>
