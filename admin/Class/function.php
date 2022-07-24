@@ -64,8 +64,55 @@ class blogAdmin{
         {
             return "Category Added Successfully";
         }
+      } 
+
+      public function manageCategory()
+      {
+        $query = "SELECT * FROM category";
+
+        if(mysqli_query($this->conn, $query))
+        {
+            $category = mysqli_query($this->conn, $query);
+            return $category;
+        }
       }
 
+      public function delete_Category($id)
+      {
+        $query = "DELETE FROM category WHERE id=$id";
 
+        if(mysqli_query($this->conn, $query)){
+            return "Category Deleted Successfully";
+        }
+      }
+
+      public function update_category($data)
+      {
+        $id = $data['edit_id'];
+        $name = $data['cat_name'];
+        $description = $data['cat_des'];
+
+        $query = "UPDATE category SET name = '$name', description = '$description' WHERE id = $id";
+        if(mysqli_query($this->conn, $query))
+        {
+            return "update succesfully" ;
+        }
+
+      }
+
+      public function get_category_info($id)
+      {
+
+
+        $query = "SELECT * FROM category WHERE id = $id";
+        if(mysqli_query($this->conn, $query))
+        {
+            $category_info  = mysqli_query($this->conn, $query);
+            $category = mysqli_fetch_assoc($category_info);
+
+            return $category;
+        }
+
+      }
 
 }
